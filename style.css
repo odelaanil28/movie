@@ -1,0 +1,600 @@
+/* General Styles */
+:root {
+    --primary-color: #e50914; /* Netflix Red */
+    --secondary-color: #f4f4f4; /* Light gray */
+    --dark-bg: #1a1a1a; /* Dark background for sections */
+    --text-color: #e0e0e0; /* Light text color */
+    --card-bg: #282828; /* Darker card background */
+    --border-color: #333;
+    --font-family: 'Arial', sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-family);
+    background-color: #000; /* Dark background for the entire page */
+    color: var(--text-color);
+    line-height: 1.6;
+    display: flex; /* For sticky footer on all pages */
+    flex-direction: column; /* For sticky footer on all pages */
+    min-height: 100vh; /* For sticky footer on all pages */
+}
+
+.main-content { /* New class for main content on all pages */
+    flex: 1; /* Allows main content to grow and push footer down */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-color);
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #c40812; /* Darker red on hover */
+}
+
+.btn-small {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--dark-bg);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.navbar .nav-links {
+    display: flex;
+    gap: 25px;
+}
+
+.navbar .nav-links a {
+    font-weight: bold;
+    padding: 5px 0; /* Add padding for click area */
+}
+
+.navbar .search-box {
+    display: flex;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #333;
+}
+
+.navbar .search-box input {
+    border: none;
+    padding: 8px 12px;
+    background-color: transparent;
+    color: var(--text-color);
+    outline: none;
+}
+
+.navbar .search-box input::placeholder {
+    color: #bbb;
+}
+
+.navbar .search-box button {
+    background-color: var(--primary-color);
+    border: none;
+    padding: 8px 12px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .search-box button:hover {
+    background-color: #c40812;
+}
+
+.navbar .menu-toggle {
+    display: none; /* Hidden on desktop */
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero-section {
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://image.tmdb.org/t/p/original/bWmK1vTf2I4XmH2o3o5X4W2n2Qc.jpg') no-repeat center center/cover;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+}
+
+/* Movie Listing */
+.movie-listing {
+    padding: 50px 0;
+    text-align: center;
+    background-color: #000; /* Ensure this section has background */
+}
+
+.movie-listing h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.movie-card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.movie-card img {
+    width: 100%;
+    height: 380px; /* Fixed height for posters */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    display: block;
+}
+
+.movie-card .card-content {
+    padding: 15px;
+    text-align: left;
+}
+
+.movie-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.movie-card .rating {
+    color: #ffd700; /* Gold color for stars */
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.movie-card .rating i {
+    margin-right: 5px;
+}
+
+.movie-card .genre {
+    font-size: 0.9rem;
+    color: #bbb;
+    margin-bottom: 15px;
+}
+
+.movie-listing .load-more {
+    margin-top: 20px;
+}
+
+/* Movie Detail Section */
+.movie-detail-section {
+    padding: 50px 0;
+    background-color: #0d0d0d;
+}
+
+.movie-detail-section.hidden {
+    display: none;
+}
+
+.movie-detail-section .btn-back {
+    margin-bottom: 30px;
+    background-color: #444;
+}
+
+.movie-detail-section .btn-back:hover {
+    background-color: #666;
+}
+
+.movie-detail-content {
+    display: flex;
+    gap: 40px;
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
+    flex-wrap: wrap; /* Allow wrapping on small screens */
+}
+
+.movie-detail-content .movie-poster {
+    flex: 1; /* Allows poster to grow */
+    min-width: 250px; /* Min width for poster */
+    text-align: center;
+}
+
+.movie-detail-content .movie-poster img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+.movie-detail-content .movie-info {
+    flex: 2; /* Allows info to take more space */
+    min-width: 300px; /* Min width for info block */
+}
+
+.movie-info h2 {
+    font-size: 2.8rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.movie-info .detail-rating {
+    font-size: 1.5rem;
+    color: #ffd700;
+    margin-bottom: 15px;
+}
+
+.movie-info .detail-rating i {
+    margin-right: 8px;
+}
+
+.movie-info p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+    color: #ccc;
+}
+
+.movie-info p span {
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.movie-info .detail-plot {
+    margin-top: 20px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #bbb;
+}
+
+.review-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.review-section h4 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.review-card {
+    background-color: #333;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.review-card .review-author {
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.review-card .review-rating {
+    float: right;
+    color: #ffd700;
+}
+
+.review-card .review-text {
+    font-size: 0.95rem;
+    color: #bbb;
+}
+
+/* General Page Content Styles (for non-home pages) */
+.page-content {
+    padding: 60px 0;
+    background-color: #0d0d0d;
+    text-align: center;
+}
+
+.page-content h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.page-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    color: #bbb;
+}
+
+.page-content ul {
+    list-style: none;
+    padding: 0;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.page-content ul li {
+    background-color: var(--card-bg);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-align: left;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.page-content .contact-form {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 30px auto;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    text-align: left;
+}
+
+.page-content .contact-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.page-content .contact-form input[type="text"],
+.page-content .contact-form input[type="email"],
+.page-content .contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: #333;
+    color: var(--text-color);
+    font-size: 1rem;
+    outline: none;
+}
+
+.page-content .contact-form textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.page-content .contact-form input[type="text"]::placeholder,
+.page-content .contact-form input[type="email"]::placeholder,
+.page-content .contact-form textarea::placeholder {
+    color: #999;
+}
+
+
+/* Footer */
+.footer {
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    padding: 30px 0;
+    text-align: center;
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+    margin-top: auto; /* Pushes footer to the bottom */
+}
+
+.footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-links a {
+    margin: 0 15px;
+    font-size: 0.95rem;
+}
+
+.social-media a {
+    font-size: 1.5rem;
+    margin: 0 10px;
+    color: var(--text-color);
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover {
+    color: var(--primary-color);
+}
+
+.footer p {
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+/* Responsive Design */
+
+/* Tablet and smaller desktops (max 1024px) */
+@media (max-width: 1024px) {
+    .hero-content h1 {
+        font-size: 2.8rem;
+    }
+
+    .hero-content p {
+        font-size: 1.1rem;
+    }
+
+    .movie-grid {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+    }
+
+    .movie-detail-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+    }
+
+    .movie-detail-content .movie-poster {
+        min-width: unset;
+        width: 60%;
+        margin: 0 auto;
+    }
+
+    .movie-detail-content .movie-info {
+        min-width: unset;
+    }
+
+    .review-card .review-rating {
+        float: none;
+        display: block;
+        margin-top: 5px;
+    }
+}
+
+/* Mobile Devices (max 768px) */
+@media (max-width: 768px) {
+    .navbar .container {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+
+    .navbar .logo {
+        margin-bottom: 10px;
+    }
+
+    .navbar .nav-links {
+        display: none; /* Hide nav links by default on mobile */
+        flex-direction: column;
+        width: 100%;
+        background-color: #222;
+        padding: 10px 0;
+        border-radius: 5px;
+    }
+
+    .navbar .nav-links.active {
+        display: flex; /* Show when active */
+    }
+
+    .navbar .nav-links a {
+        padding: 10px 20px;
+        border-bottom: 1px solid #333;
+    }
+
+    .navbar .nav-links a:last-child {
+        border-bottom: none;
+    }
+
+    .navbar .search-box {
+        width: 100%;
+    }
+
+    .navbar .menu-toggle {
+        display: block; /* Show hamburger icon */
+        position: absolute;
+        top: 20px;
+        right: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .movie-listing h2 {
+        font-size: 2rem;
+    }
+
+    .movie-grid {
+        grid-template-columns: 1fr; /* Single column on mobile */
+        padding: 0 10px; /* Add padding to grid */
+    }
+
+    .movie-card {
+        max-width: 300px; /* Max width for single column cards */
+        margin: 0 auto; /* Center the card */
+    }
+
+    .footer-links, .social-media {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-links a, .social-media a {
+        margin: 5px 0;
+    }
+
+    .page-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .page-content p {
+        padding: 0 10px;
+    }
+
+    .page-content .contact-form {
+        margin: 30px 10px;
+    }
+}

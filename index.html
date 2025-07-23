@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MovieReviewHub - Your Source for Movie Reviews</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">MovieReviewHub</a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="movies.html">Movies</a>
+                <a href="tvshows.html">TV Shows</a>
+                <a href="reviews.html">Reviews</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="Search movies...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </div>
+            <button class="menu-toggle" aria-label="Toggle Navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>Discover Your Next Favorite Movie</h1>
+                <p>Read unbiased reviews and find out what's worth watching.</p>
+                <a href="movies.html" class="btn">Explore Movies</a>
+            </div>
+        </section>
+
+        <section class="movie-listing container">
+            <h2>Popular Movies</h2>
+            <div class="movie-grid">
+                <div class="movie-card">
+                    <img src="images/animal.jpg" alt="Dune: Part Two Poster">
+                    <div class="card-content">
+                        <h3>Dune: Part Two</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i> 8.5
+                        </div>
+                        <p class="genre">Sci-Fi, Adventure</p>
+                        <button class="btn btn-small view-details" data-movie-id="1">View Details</button>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <img src="images/bahubali-2.jpg" alt="Kung Fu Panda 4 Poster">
+                    <div class="card-content">
+                        <h3>Kung Fu Panda 4</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i> 7.1
+                        </div>
+                        <p class="genre">Animation, Family</p>
+                        <button class="btn btn-small view-details" data-movie-id="2">View Details</button>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <img src="images/jailer.jpg" alt="Godzilla x Kong: The New Empire Poster">
+                    <div class="card-content">
+                        <h3>Godzilla x Kong: The New Empire</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i> 6.6
+                        </div>
+                        <p class="genre">Action, Sci-Fi</p>
+                        <button class="btn btn-small view-details" data-movie-id="3">View Details</button>
+                    </div>
+                </div>
+
+                <div class="movie-card">
+                    <img src="images/kalki.jpg" alt="Damsel Poster">
+                    <div class="card-content">
+                        <h3>Damsel</h3>
+                        <div class="rating">
+                            <i class="fas fa-star"></i> 6.2
+                        </div>
+                        <p class="genre">Fantasy, Action</p>
+                        <button class="btn btn-small view-details" data-movie-id="4">View Details</button>
+                    </div>
+                </div>
+
+                </div>
+            <a href="movies.html" class="btn load-more">View All Movies</a>
+        </section>
+
+        <section class="movie-detail-section container hidden" id="movieDetailSection">
+            <button class="btn btn-back" id="backToMovies">Back to Movies</button>
+            <div class="movie-detail-content">
+                <div class="movie-poster">
+                    <img src="images/lucky.jpg" alt="" id="detailPoster">
+                </div>
+                <div class="movie-info">
+                    <h2 id="detailTitle"></h2>
+                    <div class="detail-rating">
+                        <i class="fas fa-star"></i> <span id="detailRating"></span> / 10
+                    </div>
+                    <p class="detail-genre">Genre: <span id="detailGenre"></span></p>
+                    <p class="detail-release-date">Release Date: <span id="detailReleaseDate"></span></p>
+                    <p class="detail-director">Director: <span id="detailDirector"></span></p>
+                    <p class="detail-cast">Cast: <span id="detailCast"></span></p>
+                    <p class="detail-plot" id="detailPlot"></p>
+                    <div class="review-section">
+                        <h4>User Reviews</h4>
+                        <div class="review-card">
+                            <p class="review-author">John Doe <span class="review-rating">5/5 <i class="fas fa-star"></i></span></p>
+                            <p class="review-text">An absolute masterpiece! Visually stunning and a fantastic story.</p>
+                        </div>
+                        <div class="review-card">
+                            <p class="review-author">Jane Smith <span class="review-rating">4/5 <i class="fas fa-star"></i></span></p>
+                            <p class="review-text">Great film, but a bit long. Still highly recommend for sci-fi fans.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-links">
+                <a href="contact.html">About Us</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Sitemap</a>
+            </div>
+            <div class="social-media">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            </div>
+            <p>&copy; <span id="currentYear"></span> MovieReviewHub. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
